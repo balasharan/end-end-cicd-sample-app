@@ -15,6 +15,6 @@ jobs:
     uses: balasharan/citemplatecalling/.github/workflows/ci.yml@main
     with:
       
-      TAG: test-${{ github.run_id }}-${{ github.run_number }}
+      TAG: end-end-cicd-sample-app-${{ github.run_number }}
       javaVersion: 17
       app-name: end-end-cicd-sample-app
