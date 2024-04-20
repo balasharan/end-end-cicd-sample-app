@@ -17,3 +17,4 @@ jobs:
       
       TAG: test-${{ github.run_id }}-${{ github.run_number }}
       javaVersion: 17
+      app-name: end-end-cicd-sample-app
