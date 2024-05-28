@@ -1,0 +1,37 @@
+name: Example Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      choices:
+        description: 'Select options'
+        required: true
+        default: 'option1'
+        type: choice
+        options:
+          - 'option1'
+          - 'option2'
+          - 'option3'
+          - 'All'  # This represents the "Select All" option
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Print selected option
+        run: |
+          echo "Selected option: ${{ github.event.inputs.choices }}"
+          
+      - name: Handle selections
+        run: |
+          if [ "${{ github.event.inputs.choices }}" == "All" ]; then
+            echo "All options selected"
+            # Add logic to handle all options
+          else
+            echo "Option selected: ${{ github.event.inputs.choices }}"
+            # Add logic to handle individual options
+          fi
